@@ -1,0 +1,84 @@
+This file contains sample request and responses
+
+                                    1. Password Verifier 
+
+                                    Request 
+
+curl --location 'http://localhost:8080/verifier' \
+--header 'Content-Type: application/json' \
+--data '{
+  "password": "Secret*123"
+}'
+
+                                    Responses
+
+{
+    "have8char": true,
+    "have_num": true,
+    "small_letter": true,
+    "capital_letter": true,
+    "special_char": true,
+    "super_strong": true,
+    "strong": true
+}
+
+
+                                    2. sighup 
+                                    
+                                    Request 
+
+curl --location 'http://localhost:8080/sighup' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "Sachin",
+    "password": "Secret123"
+}'
+
+                                    Responses
+
+User signed up successfully!
+
+
+                                    3. login 
+                                    
+                                    Request 
+
+curl --location 'http://localhost:8080/login' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "Sachin",
+    "password": "Secret123"
+}'
+
+                                    Responses
+
+Login successful!
+
+
+                                    4. store_password 
+                                    
+                                    Request 
+
+curl --location 'http://localhost:8080/store_password' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "1",
+    "username": "Sachin",
+    "stored_password": "Secret1234"
+}'
+
+                                    Responses
+
+Password stored successfully!
+
+
+                                    5. get_password 
+                                    
+                                    Request 
+
+curl --location 'http://localhost:8080/get_password?username=Sachin'
+
+                                    Responses
+
+Encrypted password: $2a$10$zhTVHAPcxrf1L/tr17VK/u7IZqPuqTQdAmlGM51aMi2Fs1hT93rVu
+
